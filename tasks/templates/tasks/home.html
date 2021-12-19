@@ -1,0 +1,83 @@
+{% extends 'tasks/base.html' %}
+
+{% load static %}
+
+{% block files %}
+<script>
+    function myFunction(id) {
+      var myobj = document.getElementById(id);
+      myobj.remove();
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="home-page">
+        <div class="img-home">
+            <img src="{% static 'tasks/images/img_avatar.png' %}" alt="Avatar" class="avatar-home">
+            <h1 class="task-title">{{ username }}</h1>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="home-page">
+        <h1 class="my-tasks">Мои задания</h1>
+    </div>
+</section>
+<!--
+<section class="u-clearfix u-section-1" id="sec-394c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <img class="u-image u-image-default u-image-1" src="images/pngwing.com3.png" alt="" data-image-width="980" data-image-height="982">
+        <a href="https://nicepage.com/k/card-html-templates" class="u-btn u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-1">Добавить задание</a>
+        <div class="u-clearfix u-gutter-20 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-opacity u-opacity-40 u-palette-4-light-2 u-radius-20 u-shape-round u-size-60 u-layout-cell-1">
+                <div class="u-container-layout u-valign-bottom u-container-layout-1">
+                  <h6 class="u-align-right u-text u-text-palette-1-dark-1 u-text-1">добавлено: 11 января</h6>
+                  <h5 class="u-custom-font u-font-source-sans-pro u-text u-text-palette-4-base u-text-2">Title</h5>
+                  <h2 class="u-custom-font u-font-source-sans-pro u-text u-text-3">ContentContentContentContent&nbsp;Content&nbsp;Content&nbsp;Content&nbsp;Content&nbsp;Content&nbsp;ContentContentContentContentContentContentContentContentContentContent</h2>
+                  <h3 class="u-text u-text-palette-2-base u-text-4">Дедлайн: 15 января</h3>
+                  <a href="https://nicepage.com/website-mockup" class="u-border-1 u-border-active-palette-4-light-1 u-border-hover-palette-4-base u-btn u-button-style u-none u-text-palette-4-base u-btn-2">Подробнее&nbsp;&nbsp;<span class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><g><g><path d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068    c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557    l-70.162,69.824c-7.829,7.792-7.859,20.455-0.067,28.284c7.793,7.831,20.457,7.858,28.285,0.068l104.504-104    c0.006-0.006,0.011-0.013,0.018-0.019C513.968,262.339,513.943,249.635,506.134,241.843z"></path>
+</g>
+</g></svg><img></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="https://nicepage.cloud" class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-3"><span class="u-file-icon u-icon u-icon-2"><img src="images/1828843.png" alt=""></span>
+        </a>
+        <a href="https://nicepage.com/static-site-generator" class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-4"><span class="u-file-icon u-icon u-icon-3"><img src="images/7162251.png" alt=""></span>
+        </a>
+      </div>
+    </section>
+-->
+
+{% for task in tasks %}
+<section id="item{{task.pk}}">
+    <div class="task-section">
+
+        <h1 class="task-title">{{ task.title }}</h1>
+        <h2 class="task-content">Описание: {{ task.content }}</h2>
+        <h2 class="task-content">Дедлайн: {{ task.deadline }}</h2>
+        {% if task.status %}
+            <h2 class="task-content">Статус: Выполнено</h2>
+        {% else %}
+            <h2 class="task-content">Статус: Не выполнено</h2>
+        {% endif %}
+        <p>
+        <div class="clearfix">
+            <button type="button" class="task-button task-delete-button" onclick="myFunction('item{{task.id}}')">Удалить</button>
+            <button type="button" class="task-button task-done-button">Выполнено</button>
+        </div>
+        </p>
+    </div>
+</section>
+{% endfor %}
+
+
+{% endblock %}

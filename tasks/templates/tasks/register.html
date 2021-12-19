@@ -1,0 +1,46 @@
+{% extends 'tasks/base.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+<form class="my-form-register" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <h1>Регистрация</h1>
+        <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
+        <hr class="hr-register">
+        <label for="id_username"><b>Имя пользователя</b></label>
+        <input type="text" placeholder="Введите имя пользователя" name="username" autofocus required id="id_username">
+
+        <label for="id_email"><b>Email</b></label>
+        <input type="email" placeholder="Введите Email" name="email" required id="id_email">
+
+        <label for="id_password1"><b>Пароль</b></label>
+        <input type="password" placeholder="Введите пароль" name="password1" required id="id_password1">
+
+        <label for="id_password2"><b>Повторите пароль</b></label>
+        <input type="password" placeholder="Повторите пароль" name="password2" required id="id_password2">
+
+        {% for f in form %}
+                {% if f.errors %}
+                    <div class="bar error">{{ f.errors }}</div>
+                {% endif %}
+        {% endfor %}
+
+        <label>
+            <input type="checkbox" name="remember" style="margin-top:20px"> Запомните меня
+        </label>
+
+        <p>Создавая учетную запись, вы соглашаетесь с нашими <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+        <div class="clearfix">
+            <button type="button" class="button-register cancelbtn-reg" onclick="document.location='{% url 'main_page' %}'">Отменить</button>
+            <button type="submit" class="button-register signupbtn-reg">Зарегистрировать</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

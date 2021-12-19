@@ -1,0 +1,49 @@
+{% extends 'tasks/base.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+<form method="post" class="my-form-login">
+    {% csrf_token %}
+    <div class="imgcontainer">
+        <img src="{% static 'tasks/images/img_avatar.png' %}" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <label for="id_username"><b>Имя пользователя</b></label>
+        <input type="text" placeholder="Введите имя пользователя" name="username" autofocus required id="id_username">
+
+        {% if  form.username.errors %}
+                <div class="bar error">{{ form.username.errors }}</div>
+        {% endif %}
+
+        <label for="id_password1"><b>Пароль</b></label>
+        <input type="password" placeholder="Введите пароль" name="password" required id="id_password1">
+
+        {% if  form.password.errors %}
+                <div class="bar error">{{ form.password.errors }}</div>
+        {% endif %}
+
+        <button type="submit" class="button-form-login">Ввойти</button>
+        <label>
+            <input type="checkbox" name="remember"> Запомнить меня
+        </label>
+        {% if  form.non_field_errors %}
+                <div class="bar error">{{ form.non_field_errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn-log button-form-login" onclick="document.location='{% url 'main_page' %}'">Отменить</button>
+        <span class="psw"><a href="#">Забыли пароль?</a></span>
+    </div>
+</form>
+
+{% endblock %}
+
+
+
+

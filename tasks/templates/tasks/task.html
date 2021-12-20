@@ -2,6 +2,43 @@
 
 {% block content %}
 
-<h1>tasktitle - {{ tasks.title }}</h1>
+<form class="w3-container" id="form-addtask"  method="post">
+    {% csrf_token %}
+    <h2>Редактировать задание "{{ task.title }}"</h2>
+    <p>
+        <label for="id_title"><b>Название</b></label>
+        <hr class="hr-add">
+        <input class="w3-input" name="title" type="text" value="{{task.title}}" required id="id_title">
+    </p>
+    <p>
+        <label for="id_content"><b>Описание</b></label>
+        <hr class="hr-add">
+        <textarea name="content" class="addtask-textarea" id="id_content">{{ task.content }}</textarea>
+    </p>
+    <p>
+        <label for="id_deadline"><b>Дедлайн</b></label>
+        <hr class="hr-add">
+        <input class="w3-input" name="deadline" type="text" value="{{task.deadline}}" id="id_deadline">
+    </p>
+    <p>
+        {% if task.status %}
+            <input class="w3-check" type="checkbox" name="status" checked="checked" id="id_status">
+        {% else %}
+            <input class="w3-check" type="checkbox" name="status" id="id_status">
+        {% endif %}
+        <label for="id_status">Выполнено</label>
+    </p>
+    {% for f in form %}
+        {% if f.errors %}
+            <div class="bar error">{{ f.errors }}</div>
+        {% endif %}
+    {% endfor %}
+    <p>
+        <div class="clearfix">
+            <button type="button" class="button-register cancelbtn-reg" onclick="document.location='{% url 'home' %}'">Отменить</button>
+            <button type="submit" class="button-register signupbtn-reg">Изменить</button>
+        </div>
+    </p>
+</form>
 
 {% endblock %}

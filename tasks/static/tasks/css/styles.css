@@ -315,7 +315,7 @@ w3-check {
 }
 
 .task-button {
-    background-color: #04AA6D;
+    background-color: #509ed8;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -335,11 +335,21 @@ w3-check {
       background-color: #f44336;
 }
 
-.task-delete-button, .task-done-button {
+.task-delete-button, .task-update-button {
       float: left;
       width: 49%;
       margin-button: 0;
 }
-.task-done-button {
+.task-update-button {
     margin-left: 2%;
 }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+
+
+

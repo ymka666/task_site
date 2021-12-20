@@ -8,6 +8,7 @@ class TasksAdmin(admin.ModelAdmin):
     list_filter = ('status', 'time_create')
     prepopulated_fields = {'slug': ("title",)}
 
+
 admin.site.register(Tasks, TasksAdmin)
 
 

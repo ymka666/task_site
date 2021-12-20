@@ -1,7 +1,49 @@
 {% extends 'tasks/base.html' %}
 
+
+{% load static %}
+
+
 {% block content %}
 
-<h2>Обртная связь</h2>
+<form class="w3-container" id="form-addtask"  method="post">
+    {% csrf_token %}
+    <h2>Обратная связь</h2>
+    <p>
+        <label for="id_title"><b>Имя</b></label>
+        <hr class="hr-add">
+        <input class="w3-input" name="name" type="text" required id="id_title">
+    </p>
+    <p>
+        <label for="id_email"><b>Email</b></label>
+        <hr class="hr-add">
+        <input class="w3-input" name="email" type="email" required id="id_email">
+    </p>
+    <p>
+        <label for="id_content"><b>Описание</b></label>
+        <hr class="hr-add">
+        <textarea name="content" class="addtask-textarea" id="id_content"></textarea>
+    </p>
+    <p>
+        <label><b>Капча</b></label>
+        <hr class="hr-add">
+        {% for f in form %}
+            {% if forloop.last %}
+                {{ f }}
+            {% endif %}
+        {% endfor %}
+    </p>
+    <p>
+        <div class="clearfix">
+            <button type="button" class="button-register cancelbtn-reg" onclick="document.location='{% url 'home' %}'">Отменить</button>
+            <button type="submit" class="button-register signupbtn-reg">Отправить</button>
+        </div>
+    </p>
+</form>
 
 {% endblock %}
+
+
+
+
+

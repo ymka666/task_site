@@ -29,7 +29,8 @@ class Tasks(models.Model):
     def save(self):
         if not self.id:
             newslug = str(self.title)
-            self.slug = slugify(unidecode(newslug))
+            self.slug += f'_{slugify(unidecode(newslug))}'
+
         super(Tasks, self).save()
 
 

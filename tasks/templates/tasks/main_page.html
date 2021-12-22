@@ -1,7 +1,16 @@
 {% extends 'tasks/base.html' %}
+{% load static %}
+
 
 {% block content %}
 
-<h3>Информация о сайте</h3>
+<section>
+    <div class="home-page">
+        <div class="img-home">
+            <img src="{% static 'tasks/images/task_image.png' %}" alt="Avatar" class="avatar-home">
+            <h1 class="task-title">{{ username }}</h1>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

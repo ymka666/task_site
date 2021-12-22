@@ -31,7 +31,6 @@ class UpdateTaskForm(forms.ModelForm):
         model = Tasks
         fields = ['title', 'content', 'deadline', 'status']
 
-
     def clean_title(self):
         title = self.cleaned_data['title']
         if len(title) > 200:
@@ -53,6 +52,7 @@ class RegisterUserForm(UserCreationForm):
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField()
     password = forms.CharField()
+    remember_me = forms.BooleanField(required=False)
 
 
 class ContactForm(forms.Form):

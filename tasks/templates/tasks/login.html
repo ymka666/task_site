@@ -1,6 +1,4 @@
 {% extends 'tasks/base.html' %}
-
-
 {% load static %}
 
 
@@ -29,7 +27,7 @@
 
         <button type="submit" class="button-form-login">Ввойти</button>
         <label>
-            <input type="checkbox" name="remember"> Запомнить меня
+            <input type="checkbox" name="remember_me"> Запомнить меня
         </label>
         {% if  form.non_field_errors %}
                 <div class="bar error">{{ form.non_field_errors }}</div>

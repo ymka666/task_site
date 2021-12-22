@@ -1,25 +1,9 @@
 {% extends 'tasks/base.html' %}
 
 
-{% block files %}
-
-{% endblock files %}
-
-
 {% block content %}
 
-
-
-<!--
-<form action="{% url 'addtask' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Добавить</button>
-</form>
--->
-
-
-<form action="{% url 'addtask' %}" class="w3-container" id="form-addtask"  method="post">
+<form class="w3-container" id="form-addtask"  method="post">
     {% csrf_token %}
     <h2>Новое задание</h2>
     <p>

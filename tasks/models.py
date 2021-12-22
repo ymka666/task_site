@@ -30,7 +30,6 @@ class Tasks(models.Model):
         if not self.id:
             newslug = str(self.title)
             self.slug += f'_{slugify(unidecode(newslug))}'
-
         super(Tasks, self).save()
 
 

@@ -2,7 +2,13 @@
 
 Сайт для создания, редактирования и удаления заданий.
 
-![image](tasks/static/tasks/images/task_image.png)
+# Установка
+
+Сайт находится ещё в стадии разработки, но уже имеет функионал для корректного использования.
+
+1. ```git clone https://github.com/ymka666/task_site```
+2. ```pip install -r requirements.txt```
+3. ```python manage.py runserver```
 
 # Контакты 
 

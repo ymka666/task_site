@@ -6,9 +6,20 @@
 
 Сайт находится ещё в стадии разработки, но уже имеет функионал для корректного использования.
 
-1. ```git clone https://github.com/ymka666/task_site```
-2. ```pip install -r requirements.txt```
-3. ```python manage.py runserver```
+1. Клонируем
+
+```
+git clone https://github.com/ymka666/task_site
+```
+
+3. Устанавливаем всё необходимое
+```
+pip install -r requirements.txt
+```
+5. Запускаем
+```
+python manage.py runserver
+```
 
 # Контакты 
 
